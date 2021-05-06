@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Webatrio Test{% endblock %}
+
+{% block body %}
+  {% if personnes %}
+    <table id="personnes" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Date de naissance</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for personne in personnes %}
+          <tr>
+            <td>{{ personne.nom }}</td>
+            <td>{{ personne.prenom }}</td>
+            <td>{{ personne.date|date('d/m/Y') }}</td>
+            <td>{{ personne.age }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Aucune personne n'a été trouvée</p>
+  {% endif %}
+{% endblock %}
